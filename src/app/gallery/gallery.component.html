@@ -1,0 +1,7 @@
+<div class="grid">
+  <div *ngFor="let g of gifs" class="cell">
+    <img
+      src={{g.images.fixed_width_downsampled.url}}
+      alt={{g.title}} />
+  </div>
+</div>
