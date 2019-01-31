@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
-import { of } from 'rxjs'
+import { of, Observable } from 'rxjs'
 import { GifService } from '../gif.service';
 import { ActionTypes, RecievedGifs, ErrorGifs } from '../actions/gifs.actions';
 
@@ -9,11 +9,13 @@ import { ActionTypes, RecievedGifs, ErrorGifs } from '../actions/gifs.actions';
 export class GifsEffects {
 
   @Effect()
-  fetchInitGifs$ = this.actions$.pipe(
+  fetchInitGifs$: Observable<any> = this.actions$.pipe(
     ofType(ActionTypes.FetchInitGifs),
     mergeMap(() => this.gifService.getGifs().pipe(
-      map(gifs => 
-        new RecievedGifs(gifs)
+      map(gifs => {
+        console.log(JSON.stringify(gifs))
+        return new RecievedGifs(gifs)
+        }
       ),
       catchError(err => 
         of(new ErrorGifs(err))
