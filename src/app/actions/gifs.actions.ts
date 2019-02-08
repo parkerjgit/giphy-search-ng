@@ -2,7 +2,8 @@ import { Action } from '@ngrx/store';
 import { Gif } from '../gif';
 
 export enum ActionTypes {
-  FetchInitGifs = '[Gifs] Fetch Init Gifs',   // -> effect
+  FetchInitGifs = '[Gifs] Fetch Init Gifs',   // effect
+  FetchGifsByKeyword = '[Gifs] Fetch Gifs By Keyword', // effect
   FetchingGifs = '[Gifs] Fetching Gifs',
   RecievedGifs = '[Gifs] Received Gifs',
   ErrorGifs = '[Gifs] Error Gifs',
@@ -12,6 +13,10 @@ export enum ActionTypes {
   SetSort = '[Gifs] Set Sort',
 }
 
+export class FetchGifsByKeyword implements Action {
+  readonly type = ActionTypes.FetchGifsByKeyword;
+  constructor(public payload: string) {}
+}
 export class FetchingGifs implements Action {
   readonly type = ActionTypes.FetchingGifs;
 }
@@ -41,6 +46,7 @@ export class SetSort implements Action {
 }
 
 export type Action = 
+  FetchGifsByKeyword |
   FetchingGifs | 
   RecievedGifs |
   ErrorGifs |

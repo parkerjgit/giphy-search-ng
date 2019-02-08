@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { environment } from '../environments/environment';
 
@@ -27,6 +28,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { reducers, metaReducers } from './reducers';
 import { GifsEffects } from './effects/gifs.effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SearchbarComponent } from './searchbar/searchbar.component';
 
 @NgModule({
   declarations: [
@@ -34,10 +36,12 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HeaderComponent,
     SidebarComponent,
     ContentComponent,
-    GalleryComponent
+    GalleryComponent,
+    SearchbarComponent
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
 
     // Material
     BrowserAnimationsModule,

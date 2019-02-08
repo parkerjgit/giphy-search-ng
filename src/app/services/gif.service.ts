@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { Observable, of, from, ObservableInput} from 'rxjs';
 import { map, switchMap, pluck, toArray } from 'rxjs/operators'
 import { HttpClient } from '@angular/common/http';
-import { GIFS } from './fake_gifs';
-import { Gif } from './gif';
+import { Gif } from '../gif';
 
 const API = '//api.giphy.com/v1/gifs/'
 const API_KEY = 'WMroid9D8JOFUH8abXr3x6xs3zFKOC7q';
-const LIMIT = 40;
+const LIMIT = 5;
 const query = (keywords) =>
   'search?q=' + keywords + '&api_key=' + API_KEY + '&limit=' + LIMIT
 const config = {
@@ -23,9 +22,9 @@ export class GifService {
 
   constructor(private http: HttpClient) { }
 
-  getGifs(): Observable<any> {
+  getGifs(keywords: string): Observable<any> {
     // return of(GIFS);
-    const keywords = 'stop motion'
+    // const keywords = 'stop motion'
     return this.http
       .get(API + query(keywords))
       .pipe(
@@ -34,7 +33,8 @@ export class GifService {
           data["id"],
           data["title"],
           data["images"],
-          keywords.split(', ')
+          keywords.split(', '),
+          data["rating"]
         )),
         toArray(),
       );
