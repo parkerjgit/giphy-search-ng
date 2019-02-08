@@ -13,7 +13,7 @@ export class GifsEffects {
     ofType(ActionTypes.FetchInitGifs),
     mergeMap(() => this.gifService.getGifs().pipe(
       map(gifs => {
-        console.log(JSON.stringify(gifs))
+        // console.log(JSON.stringify(gifs))
         return new RecievedGifs(gifs)
         }
       ),

@@ -1,10 +1,20 @@
-<div>
-  <div>
-    <header></header>
-    <sidebar></sidebar>
-    <main>
+<div 
+  class="example-container" 
+  [class.example-is-mobile]="mobileQuery.matches">
+
+  <header (sideNavToggled)="sidebar.toggle()"></header>
+  <sidebar 
+    #sidebar
+  ></sidebar>
+  <mat-sidenav-container 
+    class="example-sidenav-container"
+    [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+    <mat-sidenav-content>
       <content></content>
-    </main>
-  </div>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
 </div>
+  
 

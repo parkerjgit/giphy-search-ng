@@ -1,5 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+// Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { 
+  MatSidenavModule,
+  MatListModule,
+  MatButtonModule,
+} from '@angular/material';
+
+// Components
 import { SidebarComponent } from './sidebar.component';
 
 describe('SidebarComponent', () => {
@@ -8,7 +17,16 @@ describe('SidebarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SidebarComponent ]
+      declarations: [ SidebarComponent ],
+      imports: [
+
+        // Material
+        BrowserAnimationsModule,
+        MatSidenavModule,
+        MatListModule,
+        MatButtonModule,
+
+      ],
     })
     .compileComponents();
   }));
