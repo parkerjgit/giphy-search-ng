@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { State, getGifs, sortedGifs } from '../reducers';
+import { State, getGifs, sortedGifs } from '../../reducers';
 import { Store } from '@ngrx/store';
-import { ActionTypes, FetchGifsByKeyword } from '../actions/gifs.actions';
+import { ActionTypes, FetchGifsByKeyword } from '../../actions/gifs.actions';
 
 @Component({
   selector: 'app-searchbar',

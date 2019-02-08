@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { GifService } from '../services/gif.service';
-import { Gif } from '../gif';
+import { GifService } from '../../services/gif.service';
+import { Gif } from '../../gif';
 import { Observable } from 'rxjs';
-import { State, getGifs, gifsByKeyword, sortedGifs } from '../reducers';
+import { State, getGifs, gifsByKeyword, sortedGifs } from '../../reducers';
 import { Store } from '@ngrx/store';
-import { ActionTypes } from '../actions/gifs.actions';
+import { ActionTypes } from '../../actions/gifs.actions';
 // import { GIFS } from '../fake_gifs'
 
 @Component({
