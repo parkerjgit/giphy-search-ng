@@ -1,6 +1,5 @@
-import { Action } from '@ngrx/store';
-import { Gif } from '../gif';
-import * as Gifs from '../actions/gifs.actions'
+import { Gif } from './gif';
+import * as Gifs from './gifs.actions'
 
 export enum SORT_BY {
   RATING = 'rating',
@@ -23,7 +22,7 @@ export interface State {
   isError: boolean,
 }
 
-export const initialState: State = {
+const initialState: State = {
   gifs: [],
   ratings: {
     'g': true,

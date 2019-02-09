@@ -25,11 +25,14 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { reducers, metaReducers } from './reducers';
-import { GifsEffects } from './effects/gifs.effects';
+import { reducers, metaReducers } from './store';
+import { GifsEffects } from './store/gifs/gifs.effects';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { SearchbarComponent } from './components/searchbar/searchbar.component';
 import { SidebarContentComponent } from './components/sidebar-content/sidebar-content.component';
+import { KeywordFilterComponent } from './components/keyword-filter/keyword-filter.component';
+import { SortControlsComponent } from './components/sort-controls/sort-controls.component';
+import { RatingsFilterComponent } from './components/ratings-filter/ratings-filter.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +42,10 @@ import { SidebarContentComponent } from './components/sidebar-content/sidebar-co
     ContentComponent,
     GalleryComponent,
     SearchbarComponent,
-    SidebarContentComponent
+    SidebarContentComponent,
+    KeywordFilterComponent,
+    SortControlsComponent,
+    RatingsFilterComponent
   ],
   imports: [
     BrowserModule,

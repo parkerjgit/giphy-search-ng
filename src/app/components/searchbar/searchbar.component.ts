@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { State, getGifs, sortedGifs } from '../../reducers';
 import { Store } from '@ngrx/store';
-import { ActionTypes, FetchGifsByKeyword } from '../../actions/gifs.actions';
+
+import { State, ACTIONS } from '../../store';
 
 @Component({
   selector: 'app-searchbar',
@@ -16,8 +16,7 @@ export class SearchbarComponent{
 
   handleSubmit(event: Event) {
     event.preventDefault;
-    // this.store.dispatch({ type: ActionTypes.FetchGifsByKeyword })
-    this.store.dispatch(new FetchGifsByKeyword(this.searchTerms.value))
+    this.store.dispatch(new ACTIONS.FetchGifsByKeyword(this.searchTerms.value))
     this.searchTerms.setValue('');
   }
 

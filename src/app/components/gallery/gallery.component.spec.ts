@@ -14,7 +14,7 @@ import {
 
 // ngRx
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from '../reducers';
+import { reducers, metaReducers } from '../../store';
 
 describe('GalleryComponent', () => {
   let component: GalleryComponent;

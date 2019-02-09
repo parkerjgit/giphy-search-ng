@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { map, mergeMap, catchError } from 'rxjs/operators';
 import { of, Observable } from 'rxjs'
-import { GifService } from '../services/gif.service';
-import { ActionTypes, RecievedGifs, ErrorGifs, AddKeywords } from '../actions/gifs.actions';
-import { State } from '../reducers';
+import { GifService } from '../../services/gif.service';
+import { ActionTypes, RecievedGifs, ErrorGifs, AddKeywords, RemoveKeyword } from './gifs.actions';
+import { State } from '..';
 import { Store } from '@ngrx/store';
 
 
@@ -37,6 +37,14 @@ export class GifsEffects {
         of(new ErrorGifs(err))
       )
     ))
+  )
+
+  @Effect()
+  filterOutByKeyword$: Observable<any> = this.actions$.pipe(
+    ofType(ActionTypes.FilterOutByKeyword),
+    map(({ payload: keyword }) => 
+      new RemoveKeyword(keyword)
+    )
   )
 
   constructor(
